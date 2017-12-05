@@ -1,5 +1,10 @@
 package com.demo.algorithm.model;
 
+/**
+ * 最小堆
+ * @author peichunle
+ *
+ */
 public class MinHeap {
 	// 堆的存储结构 - 数组
 	private int[] data;
