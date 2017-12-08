@@ -1,5 +1,7 @@
 package com.demo.algorithm.string;
 
+import java.util.Stack;
+
 /**
  * 给定一个字符串和一个偏移量，根据偏移量旋转字符串(从左向右旋转)
  * 目标在数组上原地旋转，使用O(1)的额外空间
@@ -43,4 +45,33 @@ public class ReverseString {
 			System.out.println(c);
 		}
 	}
+    
+    
+    public String reverseString(String s) {
+    	if(s==null||s.length()==0){
+    		return s;
+    	}
+    	StringBuilder sb = new StringBuilder();
+    	for(int i=s.length()-1;i>=0;i--){
+    		sb.append(s.charAt(i));
+    	}
+    	return new String(sb);
+    }
+    
+    
+    
+    
+    public String reverseString3(String s){
+    	char[] data = s.toCharArray();
+    	int i = 0;
+        int j = data.length - 1;
+        char tmp = ' ';
+        while (i < j) {
+            tmp = data[i];
+            data[i++] = data[j];
+            data[j--] = tmp;
+        }
+        return String.copyValueOf(data);
+    }
+   
 }
