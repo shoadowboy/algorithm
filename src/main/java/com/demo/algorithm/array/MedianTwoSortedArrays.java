@@ -17,12 +17,9 @@ package com.demo.algorithm.array;
  */
 public class MedianTwoSortedArrays {
 	public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
-		
-		int[] newArr = new int[(nums1.length+nums2.length)/2+1];
-			
 		return 0;
 	}
-	
+
 	public static void main(String[] args) {
 		int[] a={1,2};
 		
