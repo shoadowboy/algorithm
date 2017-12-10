@@ -2,8 +2,6 @@ package com.demo.algorithm.tree;
 
 import com.demo.algorithm.model.TreeNode;
 
-import javafx.scene.control.SplitPane.Divider;
-
 /**
  * Given two binary trees and imagine that when you put one of them to cover the other,
  *  some nodes of the two trees are overlapped while the others are not.
@@ -40,6 +38,5 @@ public class MergeTwoBinaryTrees {
 			recursionTreeNodes(t1.right, t2.right);
 		}
 		t1.val = t1.val+t2.val;
-		
 	}
 }
