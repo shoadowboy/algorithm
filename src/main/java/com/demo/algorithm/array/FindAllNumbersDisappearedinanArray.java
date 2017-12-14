@@ -12,7 +12,7 @@ package com.demo.algorithm.array;
  * Output:
  * [5,6]
  * @author peichunle
- *
+ * 思路：存下1到
  */
 public class FindAllNumbersDisappearedinanArray {
 
