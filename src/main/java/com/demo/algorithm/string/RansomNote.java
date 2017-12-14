@@ -1,5 +1,8 @@
 package com.demo.algorithm.string;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given an arbitrary ransom note string and another string containing letters 
  * from all the magazines, write a function that will return true if the ransom 
@@ -17,17 +20,38 @@ package com.demo.algorithm.string;
  */
 public class RansomNote {
 	public boolean canConstruct(String ransomNote, String magazine) {
-		if(magazine==null||magazine.length()==0){
+		if(magazine==null||ransomNote==null){
 			return false;
 		}
-		if(ransomNote==null||ransomNote.length()==0){
-			return  true;
+		if(ransomNote.length()>magazine.length()){
+			return false;
+		}
+		if(ransomNote.length()==0){
+			return true;
 		}
 		char[] charArray = magazine.toCharArray();
+		Map<Character,Integer> map = new HashMap<Character,Integer>();
 		for (char c : charArray) {
-			
+			if(!map.containsKey(c)){
+				map.put(c, 1);
+			}else{
+				map.put(c, map.get(c)+1);
+			}
 		}
-		
+		//
+		for(int i=0;i<ransomNote.length();i++){
+			char c = ransomNote.charAt(i);
+			if(!map.containsKey(c)){
+				return  false;
+			}else{
+				Integer integer = map.get(c);
+				if(integer==1){
+					map.remove(c);
+				}else{
+					map.put(c, integer-1);
+				}
+			}
+		}
         return true;
     }
 }
