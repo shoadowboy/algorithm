@@ -1,29 +1,39 @@
 package com.demo.algorithm.hash;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
- * 存hash,或者存数组，
+ * 滑动窗口
+ * 
  * @author peichunle
  *
  */
 public class FindAllAnagramsinaString {
-	public static List<Integer> findAnagrams(String s, String p) {
-		List<Integer> list = new ArrayList<Integer>();
-		char[] charArray = p.toCharArray();
-		Map<Character,Integer> map = new HashMap<Character,Integer>();
-		for (char c : charArray) {
-			map.put(c, map.getOrDefault(c, 0)+1);
+	public  List<Integer> findAnagrams(String s, String p) {
+		ArrayList<Integer> result = new ArrayList<>();
+		if (s == null || p == null){
+			return result;
 		}
-		char[] scharArray = s.toCharArray();
-		int difference = 0;
-		for(int i=0;i<p.length();i++){
-			
+		int left = 0;
+		int right = 0;
+		int count = p.length();
+		int[] map = new int[256];
+		char[] sc = s.toCharArray();
+		for (char c : p.toCharArray()){
+			map[c]++;
 		}
-		
-		return list;
-    }
+		while (right < s.length()) {
+			if (map[sc[right++]]-- >= 1){
+				count--;
+			}
+			if (count == 0){
+				result.add(left);
+			}
+			if (right - left == p.length() && map[sc[left++]]++ >= 0){
+				count++;
+			}
+		}
+		return result;
+	}
 }
