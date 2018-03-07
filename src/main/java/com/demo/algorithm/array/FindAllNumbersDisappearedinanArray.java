@@ -23,22 +23,22 @@ import java.util.Set;
  */
 public class FindAllNumbersDisappearedinanArray {
 	public static List<Integer> findDisappearedNumbers(int[] nums) {
-		List<Integer> list = new ArrayList<>();
+		List<Integer> list = new ArrayList<Integer>();
 		if (nums == null || nums.length == 0)
 			return list;
-		for (int i = 0; i < nums.length; i++) {
-			int temp = nums[i];
-			while (temp != nums[temp - 1]) {
-				swap(nums, temp - 1, i);
-				temp = nums[i];
-
-			}
-		}
-		for (int i = 0; i < nums.length; i++) {
-			System.out.println(nums[i]);
-			if (nums[i] != i + 1)
-				list.add(i + 1);
-		}
+//		for (int i = 0; i < nums.length; i++) {
+//			int temp = nums[i];
+//			while (temp != nums[temp - 1]) {
+//				swap(nums, temp - 1, i);
+//				temp = nums[i];
+//
+//			}
+//		}
+//		for (int i = 0; i < nums.length; i++) {
+//			System.out.println(nums[i]);
+//			if (nums[i] != i + 1)
+//				list.add(i + 1);
+//		}
 		return list;
 
 	}
@@ -52,7 +52,7 @@ public class FindAllNumbersDisappearedinanArray {
 	
 	
 	public static  List<Integer> findDuplicates(int[] nums) {
-		List<Integer> list = new ArrayList<>();
+		List<Integer> list = new ArrayList<Integer>();
 		if (nums == null || nums.length == 0)
 			return list;
 		for (int i = 0; i < nums.length; i++) {

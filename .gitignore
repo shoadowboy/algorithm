@@ -3,3 +3,10 @@
 .project
 .classpath
 .settings/org.eclipse.wst.common.project.facet.core.xml
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+algorithm.iml

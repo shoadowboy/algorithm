@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class FindAllAnagramsinaString {
 	public  List<Integer> findAnagrams(String s, String p) {
-		ArrayList<Integer> result = new ArrayList<>();
+		ArrayList<Integer> result = new ArrayList<Integer>();
 		if (s == null || p == null){
 			return result;
 		}

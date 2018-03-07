@@ -23,7 +23,7 @@ import java.util.Map;
 public class NumberofBoomerangs {
 	public int numberOfBoomerangs(int[][] points) {
 		int result = 0;
-		HashMap<Long, Integer> dist = new HashMap<>();
+		HashMap<Long, Integer> dist = new HashMap<Long, Integer>();
 		//这种会出现重复计算，
         for (int[] pi : points) {
             long xi = pi[0], yi = pi[1];
