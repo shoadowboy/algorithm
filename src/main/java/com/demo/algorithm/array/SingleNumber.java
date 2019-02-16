@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class SingleNumber {
 	/**
-	 * 有点慢，考虑加快速度
+	 * 有点慢，考虑加快速度  直接
 	 * @param nums
 	 * @return
 	 */
@@ -31,8 +31,12 @@ public class SingleNumber {
 //		
 //		return map.keySet().iterator().next();
 //    }
-	
-	
+
+	/**
+	 * 异或
+	 * @param nums
+	 * @return
+	 */
 	public static int singleNumber(int[] nums) {
 		if(nums==null||nums.length==0){
 			return 0;
