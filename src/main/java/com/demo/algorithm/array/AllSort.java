@@ -14,53 +14,30 @@ public class AllSort {
      * @return: A list of permutations.
      */
        public static List<List<Integer>> permute(int[] nums) {
-        // write your code here
-        List<List<Integer>> list = new ArrayList<List<Integer>>();
-    	if(nums==null||nums.length==0){
-    	    list.add(new ArrayList<Integer>());
-    		return list;
-    	}
+		   List<List<Integer>> list = new ArrayList<>();
+		   if(nums.length == 0) return list;
+		   process(nums, 0, list);
+		   return list;
+	   }
 
-    	fullArraySort(nums, 0, nums.length-1, list);
-    	return list;
-    }
-    
-    private static void fullArraySort(int[] nums,int left,int right,List<List<Integer>> result){
-    	if(left == right){
-    		List<Integer> listResult = new ArrayList<Integer>();
-    		for(int i=0;i<nums.length;i++){
-    			listResult.add(nums[i]);
-    		}
-			result.add(listResult );
-			return ;
-    	}
-    		
-    	//把当前节点和末尾节点交换
-		for(int i=left;i<nums.length;i++){
-			//
-			if(checkIsRepeat(nums, left, i)){
-				continue;
-			}
-			swap(nums, left, i);
-			fullArraySort(nums, left+1, right, result);
-			swap(nums, left, i);
+	public static void process(int[] nums, int i, List<List<Integer>> list){
+		if(i == nums.length){
+			List<Integer> arr = new ArrayList<>();
+			for(Integer item : nums)
+				arr.add(item);
+			list.add(arr);
+			return;
 		}
-		
-    }
-
-	private static void swap(int[] nums, int left, int right) {
-		int tmp = nums[left];
-		nums[left]= nums[right];
-		nums[right] = tmp;
+		for(int j = i; j < nums.length; j++){
+			swap(nums, j, i);
+			process(nums, i+1, list);
+			swap(nums, i, j);
+		}
 	}
-    
-	private static boolean checkIsRepeat(int[] nums,int left,int right){
-		for(int i=left;i<right;i++){
-			if(nums[i] == nums[right]){
-				return true;
-			}
-		}
-		return false;
+	public static void swap(int[] nums, int i, int j){
+		int tmp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = tmp;
 	}
     
     public static void main(String[] args) {
